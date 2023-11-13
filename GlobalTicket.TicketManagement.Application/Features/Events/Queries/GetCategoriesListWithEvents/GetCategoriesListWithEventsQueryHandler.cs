@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using GlobaTicket.TicketManagement.Application.Contracts.Persistence;
+using GloboTicket.TicketManagement.Application.Contracts.Persistence;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -12,9 +12,9 @@ namespace GloboTicket.TicketManagement.Application.Features.Events.Queries.GetCa
     public class GetCategoriesListWithEventsQueryHandler : IRequestHandler<GetCategoriesListWithEventsQuery, List<CategoryEventListVm>>
     {
         private readonly IMapper _mapper;
-        private readonly ICatergoryRepository _categoryRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
-        public GetCategoriesListWithEventsQueryHandler(IMapper mapper, ICatergoryRepository categoryRepository)
+        public GetCategoriesListWithEventsQueryHandler(IMapper mapper, ICategoryRepository categoryRepository)
         {
             _mapper = mapper;
             _categoryRepository = categoryRepository;

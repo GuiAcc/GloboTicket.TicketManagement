@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GloboTicket.TicketManagement.Domain.Entites;
 
-namespace GlobaTicket.TicketManagement.Application.Contracts.Persistence
+namespace GloboTicket.TicketManagement.Application.Contracts.Persistence
 {
     public interface IEventRepository : IAsyncRepository<Event>
     {

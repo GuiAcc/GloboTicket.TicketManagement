@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using GlobaTicket.TicketManagement.Application.Features.Events;
-using GlobaTicket.TicketManagement.Application.Features.Events.Queries.GetEventDetail;
-using GlobaTicket.TicketManagement.Application.Features.Events.Queries.GetEventList;
-using GlobaTicket.TicketManagement.Application.Features.Events.Queries.GetEventsList;
+using GloboTicket.TicketManagement.Application.Features.Events;
+using GloboTicket.TicketManagement.Application.Features.Events.Queries.GetEventDetail;
+using GloboTicket.TicketManagement.Application.Features.Events.Queries.GetEventList;
+using GloboTicket.TicketManagement.Application.Features.Events.Queries.GetEventsList;
 using GloboTicket.TicketManagement.Application.Features.Events.Commands.CreateEvent;
 using GloboTicket.TicketManagement.Application.Features.Events.Commands.DeleteEvent;
 using GloboTicket.TicketManagement.Application.Features.Events.Commands.UpdateEvent;
@@ -15,7 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GlobaTicket.TicketManagement.Application.Profiles
+namespace GloboTicket.TicketManagement.Application.Profiles
 {
     public class MappingProfile : Profile
     {

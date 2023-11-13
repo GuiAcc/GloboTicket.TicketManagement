@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using GlobaTicket.TicketManagement.Application.Contracts.Persistence;
+using GloboTicket.TicketManagement.Application.Contracts.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Linq;

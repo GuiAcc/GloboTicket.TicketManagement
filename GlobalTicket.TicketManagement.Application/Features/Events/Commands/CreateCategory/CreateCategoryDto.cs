@@ -8,8 +8,7 @@ namespace GloboTicket.TicketManagement.Application.Features.Events.Commands.Crea
 {
     public class CreateCategoryDto
     {
-        public Guid CategoryId { get; set; }
+        public Guid EventId { get; set; }
         public string Name { get; set; } = string.Empty;
-       
     }
 }

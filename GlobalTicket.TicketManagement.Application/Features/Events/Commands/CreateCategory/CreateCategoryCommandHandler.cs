@@ -1,29 +1,29 @@
 ﻿using AutoMapper;
-using GlobaTicket.TicketManagement.Application.Contracts.Persistence;
+using GloboTicket.TicketManagement.Application.Contracts.Persistence;
+using GloboTicket.TicketManagement.Application.Contracts.Infrastructure;
 using GloboTicket.TicketManagement.Domain.Entites;
-using MediatR;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GloboTicket.TicketManagement.Application.Features.Events.Commands.CreateCategory
 {
-    public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, Guid>
+    public class CreateCategoryCommandHandler
     {
-        private readonly ICatergoryRepository _catergoryRepository;
+        private readonly ICategoryRepository _categoryRepository;
         private readonly IMapper _mapper;
-
-        public CreateCategoryCommandHandler(IMapper mapper, ICatergoryRepository catergoryRepository)
+        public CreateCategoryCommandHandler(IMapper mapper, ICategoryRepository catergoryRepository)
         {
             _mapper = mapper;
-            _catergoryRepository = catergoryRepository;
+            _categoryRepository = catergoryRepository;
         }
-        public async Task<CreateCategoryCommandResponse> Handle(CreateCategoryCommandResponse request, CancellationToken cancellationToken)
+        
+        public async Task<CreateCategoryCommandResponse> Handle(CreateCategoryCommand request, CancellationToken cancellationToken)
         {
             var createCategoryCommandResponse = new CreateCategoryCommandResponse();
-
             var validator = new CreateCategoryCommandValidator();
             var validationResult = await validator.ValidateAsync(request);
 
@@ -33,19 +33,18 @@ namespace GloboTicket.TicketManagement.Application.Features.Events.Commands.Crea
                 createCategoryCommandResponse.ValidationErrors = new List<string>();
                 foreach(var error in validationResult.Errors)
                 {
-                    createCategoryCommandResponse.ValidationErrors.Add(error.Message);
+                    createCategoryCommandResponse.ValidationErrors.Add(error.ErrorMessage);
                 }
             }
-            if (createCategoryCommandResponse.Success)
+            if(createCategoryCommandResponse.Success)
             {
                 var category = new Category() { Name = request.Name };
                 category = await _categoryRepository.AddAsync(category);
                 createCategoryCommandResponse.Category = _mapper.Map<CreateCategoryDto>(category);
             }
-            return createCategoryCommandResponse;
-        }
-        
 
-        
+            return createCategoryCommandResponse;
+
+        }
     }
 }
