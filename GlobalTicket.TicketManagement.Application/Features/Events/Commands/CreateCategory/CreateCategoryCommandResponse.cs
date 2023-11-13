@@ -11,5 +11,4 @@ namespace GloboTicket.TicketManagement.Application.Features.Events.Commands.Crea
     {
         public CreateCategoryCommandResponse(): base() { }
     }
-    public CreateCategoryDto Category { get; set; } = default!;
 }
